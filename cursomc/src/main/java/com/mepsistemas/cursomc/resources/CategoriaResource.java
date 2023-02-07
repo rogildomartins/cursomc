@@ -10,18 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mepsistemas.cursomc.domain.Categoria;
 import com.mepsistemas.cursomc.services.CategoriaService;
 
-@RestController
+@RestController	
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
 	
 	@Autowired
 	private CategoriaService service;
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	@RequestMapping(value =  "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
-				
 	}
 
 }
